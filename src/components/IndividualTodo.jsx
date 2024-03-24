@@ -14,8 +14,6 @@ function IndividualTodo({ todo }) {
     setIsTodoEditable(false)
   },[todo])
 
-  
-
   return (
     <div
       className=" flex flex-wrap justify-center items-center px-3 rounded"
