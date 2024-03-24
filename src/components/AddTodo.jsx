@@ -3,17 +3,16 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 function AddTodo() {
+  const [input, setInput] = useState("");
+  const dispatch = useDispatch();
 
-    const [input, setInput] = useState('')
-    const dispatch = useDispatch()
-
-    const addTodoHandler = (e) => {
-        e.preventDefault()
-        if(input!=''){
-          dispatch(addTodo(input))
-          setInput('')
-        }
+  const addTodoHandler = (e) => {
+    e.preventDefault();
+    if (input != "") {
+      dispatch(addTodo(input));
+      setInput("");
     }
+  };
 
   return (
     <form onSubmit={addTodoHandler} className="space-x-3 mt-12">
@@ -31,7 +30,7 @@ function AddTodo() {
         Add Todo
       </button>
     </form>
-  )
+  );
 }
 
-export default AddTodo
+export default AddTodo;

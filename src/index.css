@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: cyan;
-    min-width: 465px;
-
+body {
+  background-color: cyan;
+  min-width: 465px;
 }
