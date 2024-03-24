@@ -36,14 +36,14 @@ function IndividualTodo({ todo }) {
             dispatch(removeTodo(todo.id));
           }}
         >
-          <i class="fa fa-trash"></i>
+          <i className="fa fa-trash"></i>
         </button>
         <button
           onClick={(e) => setIsTodoEditable(true)}
           className="text-white bg-red-500 border-2 gg2 items-center border-slate-900 py-1 px-3 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
           hidden={isTodoEditable}
         >
-          <i class="fa fa-edit"></i>
+          <i className="fa fa-edit"></i>
         </button>
         <button
           onClick={(e) => {
@@ -53,7 +53,7 @@ function IndividualTodo({ todo }) {
           className="text-white bg-red-500 border-2 items-center gg3 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
           hidden={!isTodoEditable}
         >
-          <i class="fa fa-save"></i>
+          <i className="fa fa-save"></i>
         </button>
       </div>
     </div>
