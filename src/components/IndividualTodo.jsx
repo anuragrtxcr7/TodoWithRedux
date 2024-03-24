@@ -19,7 +19,7 @@ function IndividualTodo({ todo }) {
       className=" flex flex-wrap justify-center items-center px-3 rounded"
       key={todo.id}
     >
-      <div className="mx-10">
+      <div className="mx-10 ml-5 flex justify-center">
         <input className="bg-slate-800 text-white px-2 rounded-xl p-2"
         value={newMessage}
         disabled={isTodoEditable === false}
@@ -30,31 +30,29 @@ function IndividualTodo({ todo }) {
       </div>
       <div className="text-white flex flex-wrap justify-end p-1">
       <button
-        className="text-white bg-red-500 border-2 gg1 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
+        className="text-white bg-red-500 border-2 gg1 items-center border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
         onClick={() => {
           dispatch(removeTodo(todo.id));
-          // setNewMessage("abhu")
         }}
-        disabled={isTodoEditable === true}
       >
-        Delete
+        <i class="fa fa-trash"></i>
       </button>
       <button
         onClick={(e) => setIsTodoEditable(true)}
-        className="text-white bg-red-500 border-2 gg2 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
-        disabled={isTodoEditable === true}
+        className="text-white bg-red-500 border-2 gg2 items-center border-slate-900 py-1 px-3 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
+        hidden={isTodoEditable}
       >
-        Edit
+        <i class="fa fa-edit"></i>
       </button>
       <button
         onClick={(e) => {
           setIsTodoEditable(false);
           dispatch(updateTodo({ id: todo.id, text: newMessage }));
         }}
-        className="text-white bg-red-500 border-2 gg3 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
-        disabled={isTodoEditable === false}
+        className="text-white bg-red-500 border-2 items-center gg3 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
+        hidden={!isTodoEditable}
       >
-        Save
+        <i class="fa fa-save"></i>
       </button>
       </div>
     </div>
