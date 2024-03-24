@@ -19,7 +19,7 @@ function IndividualTodo({ todo }) {
       className=" flex flex-wrap justify-center items-center px-3 rounded"
       key={todo.id}
     >
-      <div className="mx-10 ml-5 flex justify-center">
+      <div className="mx-5 flex justify-center">
         <input className="bg-slate-800 text-white px-2 rounded-xl p-2"
         value={newMessage}
         disabled={isTodoEditable === false}
