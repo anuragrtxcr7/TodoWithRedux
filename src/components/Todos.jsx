@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector} from 'react-redux'
 import IndividualTodo from './IndividualTodo'
 
 function Todos() {
     const todos = useSelector(state => state.todos)
+
+    useEffect(()=>{
+      localStorage.setItem("todos",JSON.stringify(todos))
+    },[todos])
 
   return (
     <>
