@@ -5,13 +5,16 @@ import { removeTodo } from "../features/todoSlice";
 import { updateTodo } from "../features/todoSlice";
 
 function IndividualTodo({ todo }) {
-  const [isTodoEditable, setIsTodoEditable] = useState(false);
+  const [isTodoEditable, setIsTodoEditable] = useState();
   const [newMessage, setNewMessage] = useState('');
   const dispatch = useDispatch();
 
   useEffect(()=>{
     setNewMessage(todo.message)
+    setIsTodoEditable(false)
   },[todo])
+
+  
 
   return (
     <div
@@ -19,7 +22,7 @@ function IndividualTodo({ todo }) {
       key={todo.id}
     >
       <div className="mx-10">
-        <input className="bg-slate-800 text-white px-2 rounded-2xl p-2"
+        <input className="bg-slate-800 text-white px-2 rounded-xl p-2"
         value={newMessage}
         disabled={isTodoEditable === false}
         onChange={(e) => {
@@ -29,7 +32,7 @@ function IndividualTodo({ todo }) {
       </div>
       <div className="text-white flex flex-wrap justify-end p-1">
       <button
-        className="text-white bg-red-500 border-2 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
+        className="text-white bg-red-500 border-2 gg1 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
         onClick={() => {
           dispatch(removeTodo(todo.id));
           // setNewMessage("abhu")
@@ -40,7 +43,7 @@ function IndividualTodo({ todo }) {
       </button>
       <button
         onClick={(e) => setIsTodoEditable(true)}
-        className="text-white bg-red-500 border-2 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
+        className="text-white bg-red-500 border-2 gg2 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
         disabled={isTodoEditable === true}
       >
         Edit
@@ -50,7 +53,7 @@ function IndividualTodo({ todo }) {
           setIsTodoEditable(false);
           dispatch(updateTodo({ id: todo.id, text: newMessage }));
         }}
-        className="text-white bg-red-500 border-2 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
+        className="text-white bg-red-500 border-2 gg3 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
         disabled={isTodoEditable === false}
       >
         Save
