@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  min-width: 580px;
+  min-width: 600px;
   background-image: url("../public/images/bg.png");
   background-size: cover;
 }
