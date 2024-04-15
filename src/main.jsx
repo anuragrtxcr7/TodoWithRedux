@@ -7,6 +7,8 @@ import { store } from "./store/store.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
+    {" "}
+    {/* specified a global store in which all the reducers and state will be kept*/}
     <App />
   </Provider>
 );
