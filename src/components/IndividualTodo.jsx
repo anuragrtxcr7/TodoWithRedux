@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { removeTodo } from "../features/todoSlice";
+import { checkTodo, removeTodo } from "../features/todoSlice";
 import { updateTodo } from "../features/todoSlice";
 
 function IndividualTodo({ todo }) {
@@ -15,7 +15,7 @@ function IndividualTodo({ todo }) {
     /* Whenever todos change, changing settings to current todo */
     setNewMessage(todo.message);
     setIsTodoEditable(false);
-    setIsChecked(false);
+    setIsChecked(todo.checked);
   }, [todo]);
 
   return (
@@ -29,7 +29,7 @@ function IndividualTodo({ todo }) {
           className="px-2 mr-5 w-7 "
           checked={isChecked}
           onChange={(e) => {
-            isChecked ? setIsChecked(false) : setIsChecked(true);
+            dispatch(checkTodo(todo.id));
           }}
           disabled={
             isTodoEditable

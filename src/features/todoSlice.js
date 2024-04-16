@@ -20,6 +20,7 @@ export const todoSlice = createSlice({
       const todo = {
         id: nanoid(),
         message: action.payload,
+        checked: false,
       };
       state.todos.push(
         todo
@@ -32,17 +33,30 @@ export const todoSlice = createSlice({
       ); /* filtering out all todos which dont equal the removal todo id */
     },
     updateTodo: (state, action) => {
-      /* updation of todo function */
+      /* updation of todo text message */
       state.todos = state.todos.map(
         (todo /* updating todo having id == id given by payload */) =>
           todo.id === action.payload.id
-            ? { id: todo.id, message: action.payload.text }
+            ? { id: todo.id, message: action.payload.text, checked: false }
+            : todo
+      );
+    },
+    checkTodo: (state, action) => {
+      /* updation of todo checkbox */
+      state.todos = state.todos.map(
+        (todo /* updating todo check having id == id given by payload */) =>
+          todo.id === action.payload
+            ? {
+                id: todo.id,
+                message: todo.message,
+                checked: todo.checked ? false : true,
+              }
             : todo
       );
     },
   },
 });
 
-export const { addTodo, removeTodo, updateTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, updateTodo, checkTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
