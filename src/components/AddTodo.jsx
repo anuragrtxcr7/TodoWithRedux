@@ -8,12 +8,12 @@ function AddTodo() {
 
   const addTodoHandler = (e) => {
     e.preventDefault();
-    if (input != "") {
+    if (input.trim() != "") {
       dispatch(
         addTodo(input)
       ); /* dispatching payload into reducers for making state change through redux */
-      setInput("");
     }
+    setInput("");
   };
 
   return (

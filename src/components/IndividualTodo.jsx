@@ -5,17 +5,17 @@ import { checkTodo, removeTodo } from "../features/todoSlice";
 import { updateTodo } from "../features/todoSlice";
 
 function IndividualTodo({ todo }) {
-  const [isTodoEditable, setIsTodoEditable] = useState();
-  const [isChecked, setIsChecked] = useState();
+  const [isTodoEditable, setIsTodoEditable] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const [newMessage, setNewMessage] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
     /* Whenever todos change, changing settings to current todo */
-    setNewMessage(todo.message);
+    setNewMessage(todo.message?todo.message:"");
     setIsTodoEditable(false);
-    setIsChecked(todo.checked);
+    setIsChecked(todo.checked?todo.checked:false);
   }, [todo]);
 
   return (
@@ -28,7 +28,7 @@ function IndividualTodo({ todo }) {
           type="checkbox"
           className="px-2 mr-5 w-7 "
           checked={isChecked}
-          onChange={(e) => {
+          onChange={() => {
             dispatch(checkTodo(todo.id));
           }}
           disabled={
@@ -82,7 +82,7 @@ function IndividualTodo({ todo }) {
           className="text-white bg-red-500 border-2 items-center gg3 border-slate-900 py-1 px-4 m-2 focus:outline-none hover:bg-red-600 rounded text-md"
           hidden={!isTodoEditable}
           disabled={
-            newMessage.trim() === ""
+            newMessage?.trim() === ""
           } /* will npt be save if trying an empty string */
         >
           <i className="fa fa-save"></i>

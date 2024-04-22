@@ -5,7 +5,7 @@ import Todos from "./components/Todos";
 function App() {
   return (
     <>
-      <div className="backdrop-blur-md bg-white/20 rounded-2xl py-4">
+      <div className="backdrop-blur-md max-w-xl m-auto bg-white/20 rounded-2xl py-4">
         <h1 className="text-5xl font-bold font-sans text-pink-600">
           Todo List
         </h1>
